@@ -7,14 +7,14 @@ public class Main {
 
         stack.push("Java");
         stack.push("Kotlin");
-        System.out.println(stack.peek());
+        System.out.println(stack);
 
         stack.pop();
-        System.out.println(stack.peek());
+        System.out.println(stack);
 
         stack.push("Python");
+        System.out.println(stack);
         System.out.println(stack.peek());
-        System.out.println(stack.size());
     }
 
 }

@@ -45,4 +45,20 @@ public class Stack<T> implements Iterable<T> {
         return mList.iterator();
     }
 
+    @Override
+    public String toString() {
+        if (isEmpty()) {
+            return "[]";
+        } else {
+            StringBuilder sb = new StringBuilder();
+            sb.append("[");
+            int count = size() - 1;
+            for (int i = 0; i < count; i++) {
+                sb.append(mList.get(i) + ", ");
+            }
+            sb.append(mList.get(count) + "]");
+            return sb.toString();
+        }
+    }
+
 }

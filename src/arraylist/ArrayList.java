@@ -136,10 +136,10 @@ public class ArrayList<T> implements Iterable<T> {
 
     @Override
     public String toString() {
-        if (mSize == 0) {
+        if (isEmpty()) {
             return "[]";
         } else {
-            StringBuilder sb = new StringBuilder(mSize);
+            StringBuilder sb = new StringBuilder();
             sb.append("[");
             for (int i = 0; i < mSize - 1; i++) {
                 sb.append(mArray[i] + ", ");

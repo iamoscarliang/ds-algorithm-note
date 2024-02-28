@@ -7,14 +7,14 @@ public class Main {
 
         queue.offer("Java");
         queue.offer("Kotlin");
-        System.out.println(queue.peek());
+        System.out.println(queue);
 
         queue.poll();
-        System.out.println(queue.peek());
+        System.out.println(queue);
 
         queue.offer("Python");
+        System.out.println(queue);
         System.out.println(queue.peek());
-        System.out.println(queue.size());
     }
 
 }

@@ -45,10 +45,17 @@ Stack<String> stack = new Stack<>();
 
 stack.push("Java");
 stack.push("Kotlin");
-System.out.println(stack.peek());
+System.out.println(stack);
 
 stack.pop();
-System.out.println(stack.peek());
+System.out.println(stack);
+```
+
+Which will print...
+
+```java
+[Java, Kotlin]
+[Java]
 ```
 
 ## :people_holding_hands: Queue
@@ -92,4 +99,11 @@ System.out.println(queue.peek());
 
 queue.poll();
 System.out.println(queue.peek());
+```
+
+Which will print...
+
+```java
+[Java, Kotlin]
+[Kotlin]
 ```
