@@ -9,13 +9,9 @@ public class Main {
         arrayList.add("Kotlin");
         System.out.println(arrayList);
 
+        arrayList.set(1, "Python");
         arrayList.removeAt(0);
         System.out.println(arrayList);
-
-        arrayList.add("Python");
-        arrayList.add("C++");
-        System.out.println(arrayList);
-        System.out.println(arrayList.get(1));
     }
 
 }
