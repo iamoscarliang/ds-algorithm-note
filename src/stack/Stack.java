@@ -1,6 +1,5 @@
 package stack;
 
-import java.util.EmptyStackException;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -29,14 +28,14 @@ public class Stack<T> implements Iterable<T> {
 
     public T pop() {
         if (isEmpty()) {
-            throw new EmptyStackException();
+            throw new RuntimeException("Empty stack");
         }
         return mList.removeLast();
     }
 
     public T peek() {
         if (isEmpty()) {
-            throw new EmptyStackException();
+            throw new RuntimeException("Empty stack");
         }
         return mList.peekLast();
     }
