@@ -1,20 +1,21 @@
-package array;
+package arraylist;
 
 import java.util.Iterator;
 
-public class DynamicArray<T> implements Iterable<T> {
+public class ArrayList<T> implements Iterable<T> {
 
     private T[] mArray;
-    private int mSize = 0;   // The number of elements currently inside the array
-    private int mCapacity = 0;   // The internal capacity of the array
+    private int mSize = 0;
+    private int mCapacity;
 
-    public DynamicArray() {
-        this(16);
+    public ArrayList() {
+        this(10);
     }
 
-    public DynamicArray(int capacity) {
+    @SuppressWarnings("unchecked")
+    public ArrayList(int capacity) {
         if (capacity < 0) {
-            throw new IllegalArgumentException("Illegal Capacity: " + capacity);
+            throw new IllegalArgumentException("Negative capacity");
         }
         mCapacity = capacity;
         mArray = (T[]) new Object[capacity];
@@ -43,15 +44,17 @@ public class DynamicArray<T> implements Iterable<T> {
         mSize = 0;
     }
 
+    @SuppressWarnings("unchecked")
     public void add(T element) {
         // Check is resize needed
         if (mSize + 1 >= mCapacity) {
             if (mCapacity == 0) {
                 mCapacity = 1;
             } else {
-                mCapacity *= 2;   // Double the size
+                // Double the size
+                mCapacity *= 2;
             }
-            // Copy all element from old array to new  array
+            // Copy all element from old array to new array
             T[] newArray = (T[]) new Object[mCapacity];
             for (int i = 0; i < mSize; i++) {
                 newArray[i] = mArray[i];
@@ -62,6 +65,7 @@ public class DynamicArray<T> implements Iterable<T> {
         mArray[mSize++] = element;
     }
 
+    @SuppressWarnings("unchecked")
     public T removeAt(int index) {
         if (index >= mSize || index < 0) {
             throw new IndexOutOfBoundsException();
@@ -70,7 +74,7 @@ public class DynamicArray<T> implements Iterable<T> {
         T[] newArray = (T[]) new Object[mSize - 1];
         for (int i = 0, j = 0; i < mSize; i++, j++) {
             if (i == index) {
-                j--;   // Skip removed element
+                j--;
             } else {
                 newArray[j] = mArray[i];
             }
