@@ -1,4 +1,4 @@
-package tree.balancedtree;
+package tree.avltree;
 
 import tree.TreePrinter;
 

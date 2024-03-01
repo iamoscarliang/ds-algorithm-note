@@ -1,4 +1,4 @@
-package tree.balancedtree;
+package tree.redblacktree;
 
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;

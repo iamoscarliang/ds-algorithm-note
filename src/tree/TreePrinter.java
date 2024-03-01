@@ -17,9 +17,9 @@ public class TreePrinter {
     public static String getTreeDisplay(PrintableNode root) {
 
         StringBuilder sb = new StringBuilder();
-        List<List<String>> lines = new ArrayList<List<String>>();
-        List<PrintableNode> level = new ArrayList<PrintableNode>();
-        List<PrintableNode> next = new ArrayList<PrintableNode>();
+        List<List<String>> lines = new ArrayList<>();
+        List<PrintableNode> level = new ArrayList<>();
+        List<PrintableNode> next = new ArrayList<>();
 
         level.add(root);
         int nn = 1;
@@ -27,7 +27,7 @@ public class TreePrinter {
 
         while (nn != 0) {
             nn = 0;
-            List<String> line = new ArrayList<String>();
+            List<String> line = new ArrayList<>();
             for (PrintableNode n : level) {
                 if (n == null) {
                     line.add(null);
@@ -67,9 +67,9 @@ public class TreePrinter {
                     char c = ' ';
                     if (j % 2 == 1) {
                         if (line.get(j - 1) != null) {
-                            c = (line.get(j) != null) ? '#' : '#';
+                            c = '-';
                         } else {
-                            if (j < line.size() && line.get(j) != null) c = '#';
+                            if (line.get(j) != null) c = '-';
                         }
                     }
                     sb.append(c);
@@ -81,11 +81,11 @@ public class TreePrinter {
                         }
                     } else {
                         for (int k = 0; k < hpw; k++) {
-                            sb.append(j % 2 == 0 ? " " : "#");
+                            sb.append(j % 2 == 0 ? " " : "-");
                         }
-                        sb.append(j % 2 == 0 ? "#" : "#");
+                        sb.append("-");
                         for (int k = 0; k < hpw; k++) {
-                            sb.append(j % 2 == 0 ? "#" : " ");
+                            sb.append(j % 2 == 0 ? "-" : " ");
                         }
                     }
                 }
