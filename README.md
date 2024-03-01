@@ -9,6 +9,7 @@ Data Structure & Algorithm in Java
 - :people_holding_hands: [Queue](#peopleholdinghands-queue)
 - :1234: [Arraylist](#1234-arraylist)
 - :link: [Linkedlist](#link-linkedlist)
+- :deciduous_tree: [BinaryTree](#deciduoustree-binarytree)
 
 ## :books: Stack
 Stack is a linear data structure that follows an order in LIFO (Last In First Out).
@@ -465,4 +466,184 @@ Which will print...
 ```java
 [Python, Java, Kotlin]
 [Python]
+```
+
+## :deciduous_tree: BinaryTree
+BinaryTree is a hierarchical data structure in which each node has at most two children, the left child and the right child.
+
+```java
+public class Node<T> {
+
+    public T mData;
+    public Node<T> mLeft;
+    public Node<T> mRight;
+
+    public Node(T data) {
+        mData = data;
+    }
+
+}
+
+public class BinaryTree<T extends Comparable<T>> {
+
+    private Node<T> mRoot;
+    private int mSize = 0;
+
+    public int size() {
+        return mSize;
+    }
+
+    public boolean isEmpty() {
+        return size() == 0;
+    }
+
+    // O(log(n))
+    public boolean add(T element) {
+        if (contains(element)) {
+            return false;
+        }
+
+        mRoot = add(mRoot, element);
+        mSize++;
+        return true;
+    }
+
+    // O(log(n))
+    private Node<T> add(Node<T> node, T element) {
+        if (node == null) {
+            return new Node<>(element);
+        }
+        if (element.compareTo(node.mData) < 0) {
+            // Insert node in left subtree
+            node.mLeft = add(node.mLeft, element);
+        } else {
+            // Insert node in right subtree
+            node.mRight = add(node.mRight, element);
+        }
+
+        return node;
+    }
+
+    // O(log(n))
+    public boolean remove(T element) {
+        if (!contains(element)) {
+            return false;
+        }
+
+        mRoot = remove(mRoot, element);
+        mSize--;
+        return true;
+    }
+
+    // O(log(n))
+    private Node<T> remove(Node<T> node, T element) {
+        if (node == null) {
+            return null;
+        }
+
+        int compare = element.compareTo(node.mData);
+        if (compare < 0) {
+            // Search left subtree
+            node.mLeft = remove(node.mLeft, element);
+        } else if (compare > 0) {
+            // Search right subtree
+            node.mRight = remove(node.mRight, element);
+        } else {
+            if (node.mLeft == null) {
+                // This is the case with only a right subtree or no subtree at all
+                // We just swap the node we wish to remove with its right child
+                return node.mRight;
+            } else if (node.mRight == null) {
+                // This is the case with only a left subtree or no subtree at all
+                // We just swap the node we wish to remove with its left child
+                return node.mLeft;
+            } else {
+                // When removing a node with two children the successor can be the largest
+                // value in the left subtree or the smallest value in the right subtree
+
+                // Find the leftmost node in the right subtree
+                Node<T> minNode = findMin(node.mRight);
+
+                // Swap the data
+                node.mData = minNode.mData;
+
+                // Go into the right subtree and remove the leftmost node to
+                // prevent having two nodes with the same value in the tree
+                node.mRight = remove(node.mRight, minNode.mData);
+            }
+        }
+
+        return node;
+    }
+
+    // O(log(n))
+    public boolean contains(T element) {
+        return contains(mRoot, element);
+    }
+
+    // O(log(n))
+    private boolean contains(Node<T> node, T element) {
+        if (node == null) {
+            return false;
+        }
+
+        int compare = element.compareTo(node.mData);
+        if (compare < 0) {
+            // Search left subtree
+            return contains(node.mLeft, element);
+        } else if (compare > 0) {
+            // Search right subtree
+            return contains(node.mRight, element);
+        } else {
+            // We find the contain element
+            return true;
+        }
+    }
+
+    // O(log(n))
+    private Node<T> findMin(Node<T> node) {
+        // Find the leftmost node
+        while (node.mLeft != null) {
+            node = node.mLeft;
+        }
+        return node;
+    }
+
+    // O(log(n))
+    private Node<T> findMax(Node<T> node) {
+        // Find the rightmost node
+        while (node.mRight != null) {
+            node = node.mRight;
+        }
+        return node;
+    }
+
+}
+```
+
+To use the binarytree...
+
+```java
+BinaryTree<Integer> binaryTree = new BinaryTree<>();
+binaryTree.add(5);
+binaryTree.add(2);
+binaryTree.add(1);
+binaryTree.add(10);
+binaryTree.add(8);
+binaryTree.add(7);
+binaryTree.add(4);
+binaryTree.add(9);
+System.out.println(binaryTree);
+```
+
+Which will print...
+
+```java
+                        5                       
+            -------------------------           
+            2                      10           
+      -------------           -------           
+      1           4           8                 
+                           -------              
+                           7     9
 ```
