@@ -1,10 +1,10 @@
-package tree.binarytree;
+package tree.binarysearchtree;
 
 import tree.TreePrinter;
 
 import java.util.*;
 
-public class BinaryTree<T extends Comparable<T>> {
+public class BinarySearchTree<T extends Comparable<T>> {
 
     private Node<T> mRoot;
     private int mSize = 0;

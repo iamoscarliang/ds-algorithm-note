@@ -468,8 +468,8 @@ Which will print...
 [Python]
 ```
 
-## :deciduous_tree: BinaryTree
-BinaryTree is a hierarchical data structure in which each node has at most two children, the left child and the right child.
+## :deciduous_tree: BinarySearchTree
+BinarySearchTree is a hierarchical data structure in which each node has at most two children, the left child and the right child.
 
 ```java
 public class Node<T> {
@@ -484,7 +484,7 @@ public class Node<T> {
 
 }
 
-public class BinaryTree<T extends Comparable<T>> {
+public class BinarySearchTree<T extends Comparable<T>> {
 
     private Node<T> mRoot;
     private int mSize = 0;
@@ -624,16 +624,16 @@ public class BinaryTree<T extends Comparable<T>> {
 To use the binarytree...
 
 ```java
-BinaryTree<Integer> binaryTree = new BinaryTree<>();
-binaryTree.add(5);
-binaryTree.add(2);
-binaryTree.add(1);
-binaryTree.add(10);
-binaryTree.add(8);
-binaryTree.add(7);
-binaryTree.add(4);
-binaryTree.add(9);
-System.out.println(binaryTree);
+BinarySearchTree<Integer> binarySearchTree = new BinarySearchTree<>();
+binarySearchTree.add(5);
+binarySearchTree.add(2);
+binarySearchTree.add(1);
+binarySearchTree.add(10);
+binarySearchTree.add(8);
+binarySearchTree.add(7);
+binarySearchTree.add(4);
+binarySearchTree.add(9);
+System.out.println(binarySearchTree);
 ```
 
 Which will print...

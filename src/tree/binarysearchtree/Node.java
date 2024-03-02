@@ -1,4 +1,4 @@
-package tree.binarytree;
+package tree.binarysearchtree;
 
 import tree.TreePrinter;
 
