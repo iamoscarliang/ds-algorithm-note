@@ -160,10 +160,10 @@ public class BinaryTree<T extends Comparable<T>> {
         switch (order) {
             case PRE_ORDER:
                 return preOrderTraversal();
-            case POST_ORDER:
-                return postOrderTraversal();
             case IN_ORDER:
                 return inOrderTraversal();
+            case POST_ORDER:
+                return postOrderTraversal();
             case LEVEL_ORDER:
                 return levelOrderTraversal();
             default:
@@ -210,7 +210,7 @@ public class BinaryTree<T extends Comparable<T>> {
 
     }
 
-    private Iterator<T> postOrderTraversal() {
+    private Iterator<T> inOrderTraversal() {
         final int expectedNodeCount = mSize;
         final Stack<Node<T>> stack = new Stack<>();
         stack.push(mRoot);
@@ -259,7 +259,7 @@ public class BinaryTree<T extends Comparable<T>> {
 
     }
 
-    private Iterator<T> inOrderTraversal() {
+    private Iterator<T> postOrderTraversal() {
         final int expectedNodeCount = mSize;
         final Stack<Node<T>> stack1 = new java.util.Stack<>();
         final Stack<Node<T>> stack2 = new java.util.Stack<>();
@@ -338,8 +338,8 @@ public class BinaryTree<T extends Comparable<T>> {
 
     public enum TreeTraversalOrder {
         PRE_ORDER,
-        POST_ORDER,
         IN_ORDER,
+        POST_ORDER,
         LEVEL_ORDER
     }
 
