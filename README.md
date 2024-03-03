@@ -9,7 +9,7 @@ Data Structure & Algorithm in Java
 - :people_holding_hands: [Queue](#peopleholdinghands-queue)
 - :1234: [Arraylist](#1234-arraylist)
 - :link: [Linkedlist](#link-linkedlist)
-- :deciduous_tree: [BinaryTree](#deciduoustree-binarytree)
+- :deciduous_tree: [BinarySearchTree](#deciduoustree-binarysearchtree)
 
 ## :books: Stack
 Stack is a linear data structure that follows an order in LIFO (Last In First Out).
@@ -469,7 +469,7 @@ Which will print...
 ```
 
 ## :deciduous_tree: BinarySearchTree
-BinarySearchTree is a hierarchical data structure in which each node has at most two children, the left child and the right child.
+BinarySearchTree is a hierarchical data structure in which each node has at most two children, a left child and a right child, where left child's values less than the parent node and the right child's values greater than the parent node.
 
 ```java
 public class Node<T> {
